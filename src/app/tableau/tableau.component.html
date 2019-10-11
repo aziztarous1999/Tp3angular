@@ -1,0 +1,78 @@
+<h2>{{title1}}</h2>
+<ul>
+    <li *ngFor="let t of tab ;let indice=index">{{t}} <input type="button" [value]="this.indice" (click)="ind=this.indice" /></li>
+</ul>
+
+    <h2>{{title2}}</h2>
+    <ul>
+        <li *ngFor="let t of tab ;let indice=index" >{{t}}
+        <input type="button" [value]="this.indice" (click)="ind=this.indice" *ngIf="t%2==0" /></li>
+    </ul>
+
+    <h2>{{title3}}</h2>
+    <ul>
+            <ng-container *ngFor="let t of tab">
+                    <li *ngIf="t%2==0"> {{t}}</li>
+                    </ng-container>                   
+    </ul>
+
+    <h2>{{title4}} 1</h2>
+    <ul>
+
+                    <li *ngFor="let t of tab">
+                            {{t}}
+                    <span *ngIf="t%2==0"> pair</span>
+                    <span *ngIf="t%2!=0"> impair</span>
+                    </li>                   
+    </ul>
+
+    <h2>{{title4}} 2</h2>
+    <ul>
+
+                    <li *ngFor="let t of tab">
+                            {{t}}
+                    <span *ngIf="t%2==0 ;else impaire"> pair</span>
+                    <ng-template #impaire>
+                        <span > impair</span>
+                    </ng-template>
+                    </li>                   
+    </ul>
+    
+
+    <h2>{{title4}} 3</h2>
+    <ul>
+
+                    <li *ngFor="let t of tab">
+                            {{t}}
+                    <span *ngIf="t%2==0;then pair;else impaire"> pair</span>
+                    <ng-template #pair>
+                        <span > pair</span>
+                    </ng-template>
+
+                    <ng-template #impaire>
+                        <span > impair</span>
+                    </ng-template>
+                    </li>                   
+    </ul>
+
+    <h2>{{title4}} 4</h2>
+    <ul>
+
+                    <li *ngFor="let t of tab">
+                            {{t}}
+                        <span [ngSwitch]="t%2==0">
+                                <span *ngSwitchCase="true"> pair</span>
+                                <span *ngSwitchCase="false"> impair</span>
+                        </span>
+                    </li>                   
+    </ul>
+
+
+
+
+<!--
+    <h1 [class.success]="valclass" [class.error]="!valclass">test 123</h1>
+    <h1 [ngClass]="messageClasses">test 321</h1>
+    <h1 [style.color]="hasError?'red':'blue'">style binding<h1>
+        <input type="text" [(ngModel)]="name">
+        <p>{{name}}</p>-->

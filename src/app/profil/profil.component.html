@@ -1,0 +1,18 @@
+<h1>{{titre}}</h1>
+<ol>
+    <li *ngFor="let a of profils">{{a}}</li>
+</ol>
+
+<p>Choix d'un profil 
+    <select [(ngModel)]="profil">
+        <option *ngFor="let a of profils"
+        [selected]="a==profil" >{{a}}</option>
+    </select>
+    
+    
+    Le profil séléctioné est :
+    <span >{{profil}}</span>
+    <br>
+    <br>
+    <span>Le profil séléctioné est (admin version):<span *ngIf="profil=='Admin'">{{profil}}</span></span>
+</p>

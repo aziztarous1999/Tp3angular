@@ -1,0 +1,14 @@
+<h1 [ngClass]="generalClass">{{titre}}</h1>
+<p >Couleur<input type="text" [(ngModel)]="couleur">
+
+    <select [(ngModel)]="police">
+    <option *ngFor="let a of fontslist" >{{a}}</option>
+</select>
+<input type="button" value="Changer" (click)="changeValues()">
+<span [ngStyle]="resultStyle">Résultat</span>
+</p>
+<p>Choix du théme:
+
+    <input type="radio" (click)="changeClass($event.target.value)" name="generalClass" value="ete"> Eté
+    <input type="radio" (click)="changeClass($event.target.value)" name="generalClass" value="standard"> Standard
+    <input type="radio" (click)="changeClass($event.target.value)" name="generalClass" value="sombre"> Sombre
